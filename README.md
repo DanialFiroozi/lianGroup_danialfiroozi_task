@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -73,3 +74,7 @@ export default defineConfig([
 ])
 
 ```
+=======
+# lianGroup_danialfiroozi_task
+Implement Lian Group Task as Danial Firoozi
+>>>>>>> 409996f6710027d1731f7c96547334a0ef8c7387
