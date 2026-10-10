@@ -1,5 +1,5 @@
 import { axiosInstance } from "../api/axiosInstance";
-import type { GetUsersList } from "../types/queries/users";
+import type { GetUsersList } from "../types/response/users";
 import { apiUrls } from "../utilities/apiUrls";
 
 export const usersService = {
@@ -10,10 +10,22 @@ export const usersService = {
 
     return data;
   },
+  getUserInfo: async ({ id }: { id: string }): Promise<GetUsersList["0"]> => {
+    const { data } = await axiosInstance.get<GetUsersList["0"]>(
+      apiUrls.getUserInfo + id,
+    );
 
-  //   getById: async (id: number): Promise<User> => {
-  //     const { data } = await axiosInstance.get<User>(`/users/${id}`);
+    return data;
+  },
+  deleteSelectedUser: async ({
+    id,
+  }: {
+    id: string;
+  }): Promise<GetUsersList["0"]> => {
+    const { data } = await axiosInstance.delete<GetUsersList["0"]>(
+      apiUrls.getUserInfo + id,
+    );
 
-  //     return data;
-  //   },
+    return data;
+  },
 };
