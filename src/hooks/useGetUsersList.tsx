@@ -11,6 +11,7 @@ import type {
   AddNewUserFormInput,
   SearchInUsersListFormInput,
 } from "../types/forms/AddNewUser.type";
+import { alphabeticalSorting } from "../utilities/functions";
 
 export function useUsersList() {
   const {
@@ -177,6 +178,7 @@ export function useUsersList() {
     {
       header: "نام کاربری",
       accessorKey: "username",
+      sortFn: alphabeticalSorting,
     },
     {
       header: "موبایل",

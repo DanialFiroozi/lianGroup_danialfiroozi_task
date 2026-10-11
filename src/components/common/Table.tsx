@@ -1,11 +1,16 @@
 import {
+  createSortedRowModel,
   tableFeatures,
   useTable,
+  rowSortingFeature,
   type ColumnDef,
   type RowData,
 } from "@tanstack/react-table";
 
-export const features = tableFeatures({});
+export const features = tableFeatures({
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+});
 
 type DataTableProps<TData extends RowData> = {
   data: TData[];
@@ -44,9 +49,18 @@ export default function Table<TData extends RowData>({
                       key={header.id}
                       className="whitespace-nowrap text-(--text-primary) px-1 md:px-2 py-4 text-xs md:text-sm font-bold"
                     >
-                      {header.isPlaceholder ? null : (
-                        <table.FlexRender header={header} />
-                      )}
+                      <button
+                        className="cursor-pointer"
+                        onClick={header.column.getToggleSortingHandler()}
+                      >
+                        {header.column.columnDef.header as string}
+
+                        {header.column.getIsSorted() === "asc"
+                          ? " ↑"
+                          : header.column.getIsSorted() === "desc"
+                            ? " ↓"
+                            : ""}
+                      </button>
                     </th>
                   ))}
                 </tr>
