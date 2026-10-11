@@ -38,7 +38,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
       <div className={`form-group w-full ${wrapperClassName}`}>
         {label && (
           <label
-            className={`mb-2 mr-3 [&.text-center]:mr-0 block text-[14px] text-black ${labelClassName}`}
+            className={`mb-2 mr-3 [&.text-center]:mr-0 block text-[14px] text-(--text-primary) ${labelClassName}`}
             htmlFor={labelFor}
           >
             {label}
@@ -56,7 +56,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
             required={required}
             disabled={disabled}
             className={[
-              `disabled:bg-gray-200 text-[15px] font-medium focus:border-[#309fd9] h-11 w-full bg-white disabled:bg-surface-100/30 rounded-lg text-black focus:bg-surface-400 px-4 outline-none border border-gray-200 placeholder:text-sm placeholder:font-light duration-300 ${inputClassName}`,
+              `disabled:bg-gray-200 text-[15px] font-medium focus:border-primary h-11 w-full bg-(--bg-input) disabled:bg-surface-100/30 rounded-lg text-(--text-primary) focus:bg-surface-400 px-4 outline-none border border-(--input-border) placeholder:text-sm placeholder:font-light duration-300 ${inputClassName}`,
               error ? "border-[#dc3545]" : "",
               className,
             ].join(" ")}

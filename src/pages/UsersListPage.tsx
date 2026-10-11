@@ -42,9 +42,9 @@ export default function UsersListPage() {
 
   return (
     <section>
-      <section className="bg-white p-3 md:p-5 rounded-lg">
+      <section className="bg-(--bg-card) p-3 md:p-5 rounded-lg">
         <div className="flex justify-between gap-3 items-center">
-          <h1 className="text-black font-black text-lg md:text-xl">
+          <h1 className="text-(--text-primary) font-black text-lg md:text-xl">
             {" "}
             لیست کاربران{" "}
           </h1>
@@ -110,7 +110,9 @@ export default function UsersListPage() {
           {!isDeleteConfirm && (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               <div>
-                <small className="text-black/70 font-light">نام:</small>
+                <small className="text-(--text-secondary) font-light">
+                  نام:
+                </small>
                 <p className="text-sm">
                   {userInfoDetails?.name ||
                     selectedLocalUser?.name ||
@@ -118,7 +120,9 @@ export default function UsersListPage() {
                 </p>
               </div>
               <div>
-                <small className="text-black/70 font-light">نام کاربری:</small>
+                <small className="text-(--text-secondary) font-light">
+                  نام کاربری:
+                </small>
                 <p className="text-sm">
                   {userInfoDetails?.username ||
                     selectedLocalUser?.username ||
@@ -126,7 +130,9 @@ export default function UsersListPage() {
                 </p>
               </div>
               <div>
-                <small className="text-black/70 font-light">ایمیل:</small>
+                <small className="text-(--text-secondary) font-light">
+                  ایمیل:
+                </small>
                 <p className="text-sm">
                   {userInfoDetails?.email ||
                     selectedLocalUser?.email ||
@@ -134,7 +140,9 @@ export default function UsersListPage() {
                 </p>
               </div>
               <div>
-                <small className="text-black/70 font-light">موبایل:</small>
+                <small className="text-(--text-secondary) font-light">
+                  موبایل:
+                </small>
                 <p className="text-sm">
                   {userInfoDetails?.phone ||
                     selectedLocalUser?.phone ||
@@ -143,7 +151,9 @@ export default function UsersListPage() {
               </div>
 
               <div className="">
-                <small className="text-black/70 font-light">وب سایت:</small>
+                <small className="text-(--text-secondary) font-light">
+                  وب سایت:
+                </small>
                 <p className="text-sm">
                   {userInfoDetails?.website ||
                     selectedLocalUser?.website ||
@@ -151,7 +161,9 @@ export default function UsersListPage() {
                 </p>
               </div>
               <div className="">
-                <small className="text-black/70 font-light">کد پستی:</small>
+                <small className="text-(--text-secondary) font-light">
+                  کد پستی:
+                </small>
                 <p className="text-sm">
                   {userInfoDetails?.address?.zipcode ||
                     selectedLocalUser?.zipcode ||
@@ -159,7 +171,9 @@ export default function UsersListPage() {
                 </p>
               </div>
               <div className="col-span-2">
-                <small className="text-black/70 font-light">آدرس:</small>
+                <small className="text-(--text-secondary) font-light">
+                  آدرس:
+                </small>
                 <p className="text-sm">
                   {userInfoDetails?.address?.city +
                     userInfoDetails?.address?.street +
@@ -272,10 +286,13 @@ export default function UsersListPage() {
         </Modal>
       </section>
 
-      <section className="bg-white p-3 md:p-5 rounded-lg mt-2">
-        <h1 className="text-black font-bold text-lg mb-4 md:mb-8"> جستجو </h1>
+      <section className="bg-(--bg-card) p-3 md:p-5 rounded-lg mt-2">
+        <h1 className="text-(--text-primary) font-bold text-lg mb-4 md:mb-8">
+          {" "}
+          جستجو{" "}
+        </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
           <InputField
             label="نام:"
             register={userSearchingRegister("name")}
@@ -307,9 +324,14 @@ export default function UsersListPage() {
             autoComplete="off"
             id="email"
           />
-          <div className="flex justify-end items-end md:col-span-2 lg:col-span-2 xl:col-span-1 gap-2">
+          <div className="flex justify-end items-end md:col-span-2 lg:col-span-2 xl:col-span-4 2xl:col-span-1 gap-2">
             {hasSearchValue && (
-              <Button variant="ghost" size="sm" onClick={() => clearSearch()}>
+              <Button
+                className="text-(--text-primary)!"
+                variant="ghost"
+                size="sm"
+                onClick={() => clearSearch()}
+              >
                 <RefreshCwIcon className="text-inherit size-4 ml-1" />
                 حذف فیلترها
               </Button>
@@ -325,7 +347,7 @@ export default function UsersListPage() {
         </div>
       </section>
 
-      <section className="bg-white  p-3 md:p-5 rounded-lg mt-2">
+      <section className="bg-(--bg-card) p-3 md:p-5 rounded-lg mt-2">
         {isFetching ? (
           <TablesSkeletonLoading />
         ) : (

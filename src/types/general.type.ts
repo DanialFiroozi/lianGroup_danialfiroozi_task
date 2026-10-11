@@ -62,14 +62,14 @@ export const sizeClasses: Record<ButtonSize, string> = {
 
 export const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#309fd9] text-white hover:bg-[#309fd9]/80 disabled:cursor-not-allowed disabled:bg-[#309fd9]/60 disabled:text-white/80 shadow-[0_12px_24px_#309fd966]",
+    "bg-primary text-white hover:bg-primary/80 disabled:cursor-not-allowed disabled:bg-primary/60 disabled:text-white/80",
   secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300",
   outline:
-    "border border-[#309fd9] text-[#309fd9] hover:bg-[#309fd9] hover:text-white",
+    "border border-primary text-primary hover:bg-primary hover:text-white",
   "outline-danger":
     "border border-red-600 text-red-600 hover:bg-red-600 hover:text-white",
   "fill-danger": "text-white bg-red-600 hover:bg-red-400",
   ghost: "text-gray-700",
   asLink:
-    "text-white !px-0 !py-0 !h-auto !rounded-none border-b border-b-white hover:text-[#309fd9] hover:border-b-[#309fd9]",
+    "text-white !px-0 !py-0 !h-auto !rounded-none border-b border-b-white hover:text-primary hover:border-b-primary",
 };

@@ -34,15 +34,15 @@ export default function Table<TData extends RowData>({
         <div className="overflow-hidden rounded-xl border border-white/5">
           <table
             dir="rtl"
-            className={`w-full min-w-200 text-center ${tableClassName}`}
+            className={`w-full min-w-200 text-center text-(--text-primary) ${tableClassName}`}
           >
-            <thead className="bg-surface-300">
+            <thead className="bg-(--bg-table-header)">
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map((header) => (
                     <th
                       key={header.id}
-                      className="whitespace-nowrap px-1 md:px-2 py-4 text-xs md:text-sm font-bold bg-gray-100"
+                      className="whitespace-nowrap text-(--text-primary) px-1 md:px-2 py-4 text-xs md:text-sm font-bold"
                     >
                       {header.isPlaceholder ? null : (
                         <table.FlexRender header={header} />
@@ -58,12 +58,12 @@ export default function Table<TData extends RowData>({
                 rows.map((row) => (
                   <tr
                     key={row.id}
-                    className="border-b border-b-gray-100 duration-300 hover:bg-gray-50"
+                    className="border-b border-b-(--border-color) bg-(--bg-table-row) duration-300 hover:bg-(--bg-table-header)/40"
                   >
                     {row.getAllCells().map((cell) => (
                       <td
                         key={cell.id}
-                        className="whitespace-normal px-1 md:px-2 py-2 md:py-3  text-xs md:text-sm font-normal"
+                        className="whitespace-normal text-(--text-primary) px-1 md:px-2 py-2 md:py-3  text-xs md:text-sm font-normal"
                       >
                         <table.FlexRender cell={cell} />
                       </td>

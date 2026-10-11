@@ -63,17 +63,66 @@
     url("/public/fonts/woff2/IRANSansXFaNum-bold.woff2") format("woff2");
 }
 
+@theme {
+  --color-primary: #309fd9;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --danger: #dc3545;
-  --success: #05d116;
-  --primary: #309fd9;
+  color-scheme: light;
+
+  --color-primary: #309fd9;
+
+  --bg-page: #f1f6f9;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-table-header: #f3f6f9;
+  --bg-table-row: #ffffff;
+  --bg-input: #ffffff;
+
+  --bg-modal: #ffffff;
+  --bg-modal-header: #f8fafc;
+  --bg-modal-footer: #f8fafc;
+  --modal-header-border: #d5eaf6;
+  --modal-footer-border: #e5eaf0;
+
+  --text-primary: #17212b;
+  --text-secondary: #64748b;
+
+  --border-color: #e5eaf0;
+  --input-border: #d7e1ea;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg-page: #0f172a;
+  --bg-sidebar: #172235;
+  --bg-card: #172235;
+  --bg-table-header: #202f43;
+  --bg-table-row: #172235;
+  --bg-input: #101b2d;
+
+  --bg-modal: #1b293d;
+  --bg-modal-header: #202f43;
+  --bg-modal-footer: #172235;
+  --modal-header-border: #35465b;
+  --modal-footer-border: #2b3b50;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #a7b4c5;
+
+  --border-color: #2b3b50;
+  --input-border: #35465b;
 }
 
 body {
   font-family: IRANSansXFaNum;
   direction: rtl;
   text-align: right;
-  background-color: #1b5a7c0e;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
 }
 
 .toast-error {
