@@ -58,7 +58,7 @@ export default function Table<TData extends RowData>({
                 rows.map((row) => (
                   <tr
                     key={row.id}
-                    className="even:bg-gray-50 odd:bg-surface-400/20 duration-300 hover:bg-gray-100"
+                    className="border-b border-b-gray-100 duration-300 hover:bg-gray-50"
                   >
                     {row.getAllCells().map((cell) => (
                       <td
@@ -76,7 +76,7 @@ export default function Table<TData extends RowData>({
                     colSpan={table.getAllLeafColumns().length}
                     className="px-4 py-8 text-sm"
                   >
-                    <div className="bg-amber-50 border border-amber-300 rounded-lg py-4 font-bold">
+                    <div className="bg-amber-50 border border-amber-300 rounded-lg py-4 font-medium">
                       داده‌ای برای نمایش وجود ندارد!
                     </div>
                   </td>

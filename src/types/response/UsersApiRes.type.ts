@@ -1,4 +1,4 @@
-export type GetUsersList = {
+export type GetUsersListApiRes = {
   id: number;
   name: string;
   username: string;
@@ -20,4 +20,5 @@ export type GetUsersList = {
     catchPhrase: string;
     bs: string;
   };
+  source?: string;
 }[];

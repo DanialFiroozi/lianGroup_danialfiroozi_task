@@ -19,17 +19,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
   iconPosition?: "left" | "right";
   iconClassName?: string;
+  iconColor?: string;
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
   sm: "px-2 py-1 text-sm h-[40px] rounded-[8px]",
-  md: "px-4 py-2.5 h-[44px] text-base md:min-w-[132px] rounded-[10px]",
+  md: "px-5 py-2.5 h-[44px] text-base md:min-w-[132px] rounded-[10px]",
   lg: "px-6 py-3 text-lg",
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#309fd9] text-white hover:bg-[#309fd9]/80 disabled:cursor-not-allowed disabled:bg-[#309fd9]/60 disabled:text-white/80 ",
+    "bg-[#309fd9] text-white hover:bg-[#309fd9]/80 disabled:cursor-not-allowed disabled:bg-[#309fd9]/60 disabled:text-white/80 shadow-[0_12px_24px_#309fd966]",
   secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300",
   outline:
     "border border-[#309fd9] text-[#309fd9] hover:bg-[#309fd9] hover:text-white",
@@ -50,23 +51,26 @@ export function Button({
   isLoading,
   iconPosition,
   iconClassName,
+  iconColor = "#309fd9",
   ...props
 }: ButtonProps) {
   const onlyIcon = Icon && !children;
 
   return (
     <button
-      className={`flex cursor-pointer items-center justify-center gap-0.5 font-medium
+      className={`flex items-center justify-center gap-0.5 font-medium
                   duration-300
                   ${sizeClasses[size]} 
                   ${variantClasses[variant]} 
                   ${onlyIcon ? "p-2" : ""}
-                  ${className}`}
-      // disabled={!isLoading}
+                  ${className}
+                  ${isLoading ? "pointer-events-none" : "cursor-pointer"}
+                  `}
+      disabled={isLoading && !isLoading}
       {...props}
     >
       {isLoading ? (
-        <BeatLoader color="#309fd9" size={10} />
+        <BeatLoader color={iconColor} size={10} />
       ) : (
         <>
           {Icon && iconPosition === "right" && (

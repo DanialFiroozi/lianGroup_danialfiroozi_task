@@ -19,7 +19,7 @@ export default function Modal({
       onClick={() => setShowModal("")}
     >
       <div
-        className={`${wrapperWidth} rounded-xl bg-white duration-500 p-6 w-full overflow-y-auto max-h-[calc(100vh-7rem)] md:max-h-full ${
+        className={`${wrapperWidth} rounded-xl bg-white duration-500 w-full overflow-y-auto max-h-[calc(100vh-7rem)] md:max-h-full ${
           showModal ? "translate-y-0 opacity-100" : "-translate-y-2/3 opacity-0"
         }`}
         onClick={(e) => e.stopPropagation()}
@@ -30,7 +30,7 @@ export default function Modal({
           </div>
         ) : (
           <>
-            <div className="modal-header pb-6 border-b border-b-gray-200 flex justify-between items-start gap-x-4">
+            <div className="modal-header p-6 bg-gray-200/30 flex justify-between items-start gap-x-4">
               <h3 className="font-bold text-xl text-black"> {title} </h3>
               <span
                 className="cursor-pointer relative top-1 text-black"
@@ -39,9 +39,9 @@ export default function Modal({
                 <img src={CircleCloseIcon} alt="close" className="h-6 w-6" />
               </span>
             </div>
-            <div className="modal-body py-6">{children && children}</div>
+            <div className="modal-body p-6">{children && children}</div>
             {footer && (
-              <div className="modal-footer pt-6 mt-6 flex flex-wrap gap-3 items-center justify-end border-t border-t-gray-200">
+              <div className="modal-footer bg-gray-200/30 p-6 mt-6 flex flex-wrap gap-3 items-center justify-end">
                 {footer}
               </div>
             )}

@@ -66,13 +66,14 @@
 :root {
   --danger: #dc3545;
   --success: #05d116;
+  --primary: #309fd9;
 }
 
 body {
   font-family: IRANSansXFaNum;
   direction: rtl;
   text-align: right;
-  @apply bg-gray-100;
+  background-color: #1b5a7c0e;
 }
 
 .toast-error {

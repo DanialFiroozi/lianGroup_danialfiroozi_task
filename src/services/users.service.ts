@@ -1,5 +1,5 @@
 import { axiosInstance } from "../api/axiosInstance";
-import type { GetUsersList } from "../types/response/users";
+import type { GetUsersList } from "../types/response/UsersApiRes.type";
 import { apiUrls } from "../utilities/apiUrls";
 
 export const usersService = {
