@@ -48,11 +48,14 @@ export function useUsersList() {
     enabled: !!showUserInfoModal && !isLocalUser,
   });
 
-  const removeUser = useQuery({
-    queryKey: ["DELETE_SELECTED_USER", deleteUser],
-    queryFn: () => usersService.deleteSelectedUser({ id: deleteUser }),
-    enabled: !!deleteUser && !isLocalUser,
-  });
+const removeUser = useMutation({
+  mutationFn: (id: string) => usersService.deleteSelectedUser({ id }),
+  onSuccess: () => {
+    queryClient.invalidateQueries({ queryKey: ["GET_USERS_LIST"] });
+    toast.success("کاربر با موفقیت حذف شد!");
+  },
+  onError: () => toast.error("خطا در حذف کاربر"),
+});
 
   useEffect(() => {
     if (removeUser?.data) {
