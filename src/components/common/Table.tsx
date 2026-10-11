@@ -34,7 +34,7 @@ export default function Table<TData extends RowData>({
         <div className="overflow-hidden rounded-xl border border-white/5">
           <table
             dir="rtl"
-            className={`w-full min-w-[800px] text-center ${tableClassName}`}
+            className={`w-full min-w-200 text-center ${tableClassName}`}
           >
             <thead className="bg-surface-300">
               {table.getHeaderGroups().map((headerGroup) => (
@@ -42,7 +42,7 @@ export default function Table<TData extends RowData>({
                   {headerGroup.headers.map((header) => (
                     <th
                       key={header.id}
-                      className="whitespace-nowrap px-2 py-4 text-sm font-bold bg-gray-100"
+                      className="whitespace-nowrap px-1 md:px-2 py-4 text-xs md:text-sm font-bold bg-gray-100"
                     >
                       {header.isPlaceholder ? null : (
                         <table.FlexRender header={header} />
@@ -63,7 +63,7 @@ export default function Table<TData extends RowData>({
                     {row.getAllCells().map((cell) => (
                       <td
                         key={cell.id}
-                        className="whitespace-normal px-2 py-3 text-sm font-normal"
+                        className="whitespace-normal px-1 md:px-2 py-2 md:py-3  text-xs md:text-sm font-normal"
                       >
                         <table.FlexRender cell={cell} />
                       </td>

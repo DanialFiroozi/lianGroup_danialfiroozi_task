@@ -1,15 +1,15 @@
-import Sidebar from "./components/layout/sidebar";
-import UsersListPage from "./pages/UsersListPage";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
+import MainWrapper from "./components/layout/MainWrapper";
+import { localUrls } from "./utilities/localUrls";
 
 function App() {
-  return (
-    <main className="p-3">
-      <section className="grid grid-cols-12 gap-6">
-        <div className="col-span-2"> {<Sidebar />}</div>
-        <div className="col-span-10">{<UsersListPage />}</div>
-      </section>
-    </main>
-  );
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(localUrls.usersList, { replace: true });
+  }, [navigate]);
+  return <MainWrapper />;
 }
 
 export default App;

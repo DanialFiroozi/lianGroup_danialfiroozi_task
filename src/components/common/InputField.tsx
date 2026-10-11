@@ -10,8 +10,6 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
       id,
       htmlFor,
       error,
-      Icon,
-      iconLeft = false,
       wrapperClassName = "",
       className = "",
       register,
@@ -49,15 +47,6 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
         )}
 
         <div className="relative">
-          {!!Icon && (
-            <Icon
-              aria-hidden
-              className={`absolute top-0 ${
-                iconLeft ? "left-3" : "right-3"
-              } bottom-0 my-auto size-5 text-gray-500`}
-            />
-          )}
-
           <input
             ref={ref}
             id={inputId}
@@ -68,7 +57,6 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
             disabled={disabled}
             className={[
               `disabled:bg-gray-200 text-[15px] font-medium focus:border-[#309fd9] h-11 w-full bg-white disabled:bg-surface-100/30 rounded-lg text-black focus:bg-surface-400 px-4 outline-none border border-gray-200 placeholder:text-sm placeholder:font-light duration-300 ${inputClassName}`,
-              Icon ? (iconLeft ? "pl-10" : "pr-10") : "",
               error ? "border-[#dc3545]" : "",
               className,
             ].join(" ")}
