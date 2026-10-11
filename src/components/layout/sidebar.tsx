@@ -1,7 +1,17 @@
 import { Link, useLocation } from "react-router";
 import logo from "../../assets/images/svg/logo-fa.png";
 import { localUrls } from "../../utilities/localUrls";
-import { ArrowLeftIcon, MenuIcon, XIcon } from "lucide-react";
+import {
+  ArrowLeftIcon,
+  DollarSignIcon,
+  LayoutDashboard,
+  LogOutIcon,
+  MenuIcon,
+  User2Icon,
+  Users2,
+  Wallet2Icon,
+  XIcon,
+} from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "../common/ThemeToggler";
 
@@ -21,7 +31,7 @@ export default function Sidebar() {
           className={`fixed top-0 left-0 right-0 bottom-0 bg-(--bg-page) backdrop-blur-sm ${showMenu ? "opacity-70 visible" : "opacity-0 invisible"}`}
         />
         <div
-          className={`absolute left-0 right-0 top-full  rounded-lg bg-(--bg-sidebar) z-50 p-4 duration-300 shadow-2xl lg:shadow-none lg:static lg:opacity-100 lg:visible ${showMenu ? "opacity-100 visible" : "invisible opacity-0"}`}
+          className={`absolute left-0 right-0 top-full  rounded-lg bg-(--bg-sidebar) z-50 duration-300 shadow-2xl lg:shadow-none lg:static lg:opacity-100 lg:visible ${showMenu ? "opacity-100 visible" : "invisible opacity-0"}`}
         >
           <div className="text-center pb-5 border-b border-(--border-color)">
             <img src={logo} alt="لوگو" className="mx-auto size-25 mb-3" />
@@ -32,42 +42,48 @@ export default function Sidebar() {
           </div>
 
           <div className="mt-5">
-            <nav className="flex flex-col gap-1">
+            <nav className="flex flex-col gap-2">
               <Link
-                className="flex justify-between items-center text-(--text-primary) text-[15px] duration-300 px-5 py-3 rounded-lg hover:bg-primary/10"
+                className="flex gap-2 items-center text-(--text-primary) text-[15px] duration-300 px-5 py-3 rounded-lg hover:bg-primary/10"
                 to={"/"}
               >
+                <LayoutDashboard className="size-4" />
                 داشبورد
               </Link>
               <Link
-                className={`${pathname === localUrls.usersList && "bg-primary/10 font-bold text-primary"} flex justify-between items-center text-[15px] duration-300 pl-2 pr-5 py-3 rounded-lg hover:bg-primary/10`}
+                className={`${pathname === localUrls.usersList && "bg-primary/10 font-bold text-primary"} flex gap-2 items-center text-[15px] duration-300 pl-2 pr-5 py-3 rounded-lg hover:bg-primary/10`}
                 to={localUrls.usersList}
               >
+                <Users2 className="size-4" />
                 کاربران
-                <ArrowLeftIcon className="size-4" />
+                <ArrowLeftIcon className="size-4 mr-auto" />
               </Link>
               <Link
-                className="flex justify-between items-center text-(--text-primary) text-[15px] duration-300 px-5 py-3 rounded-lg hover:bg-primary/10"
+                className="flex gap-2 items-center text-(--text-primary) text-[15px] duration-300 px-5 py-3 rounded-lg hover:bg-primary/10"
                 to={"/"}
               >
+                <Wallet2Icon className="size-4" />
                 سوابق خرید
               </Link>
               <Link
-                className="flex justify-between items-center text-(--text-primary) text-[15px] duration-300 px-5 py-3 rounded-lg hover:bg-primary/10"
+                className="flex gap-2 items-center text-(--text-primary) text-[15px] duration-300 px-5 py-3 rounded-lg hover:bg-primary/10"
                 to={"/"}
               >
+                <DollarSignIcon className="size-4" />
                 تراکنشات
               </Link>
               <Link
-                className="flex justify-between items-center text-(--text-primary) text-[15px] duration-300 px-5 py-3 rounded-lg hover:bg-primary/10"
+                className="flex gap-2 items-center text-(--text-primary) text-[15px] duration-300 px-5 py-3 rounded-lg hover:bg-primary/10"
                 to={"/"}
               >
+                <User2Icon className="size-4" />
                 اطلاعات کاربری
               </Link>
               <Link
-                className="text-red-700 bg-red-50 text-[15px] duration-300 px-5 py-3 rounded-lg mt-32"
+                className="flex gap-2 items-center text-red-700 bg-red-50 text-[15px] duration-300 px-5 py-3 rounded-lg mt-32"
                 to={"/"}
               >
+                <LogOutIcon className="size-4" />
                 خروج از حساب کاربری
               </Link>
             </nav>

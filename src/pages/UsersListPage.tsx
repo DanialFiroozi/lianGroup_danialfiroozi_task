@@ -113,7 +113,7 @@ export default function UsersListPage() {
                 <small className="text-(--text-secondary) font-light">
                   نام:
                 </small>
-                <p className="text-sm">
+                <p className="text-sm  wrap-break-word">
                   {userInfoDetails?.name ||
                     selectedLocalUser?.name ||
                     "یافت نشد!"}
@@ -123,7 +123,7 @@ export default function UsersListPage() {
                 <small className="text-(--text-secondary) font-light">
                   نام کاربری:
                 </small>
-                <p className="text-sm">
+                <p className="text-sm  wrap-break-word">
                   {userInfoDetails?.username ||
                     selectedLocalUser?.username ||
                     "یافت نشد!"}
@@ -133,7 +133,7 @@ export default function UsersListPage() {
                 <small className="text-(--text-secondary) font-light">
                   ایمیل:
                 </small>
-                <p className="text-sm">
+                <p className="text-sm  wrap-break-word">
                   {userInfoDetails?.email ||
                     selectedLocalUser?.email ||
                     "یافت نشد!"}
@@ -143,7 +143,7 @@ export default function UsersListPage() {
                 <small className="text-(--text-secondary) font-light">
                   موبایل:
                 </small>
-                <p className="text-sm">
+                <p className="text-sm  wrap-break-word">
                   {userInfoDetails?.phone ||
                     selectedLocalUser?.phone ||
                     "یافت نشد!"}
@@ -154,7 +154,7 @@ export default function UsersListPage() {
                 <small className="text-(--text-secondary) font-light">
                   وب سایت:
                 </small>
-                <p className="text-sm">
+                <p className="text-sm  wrap-break-word">
                   {userInfoDetails?.website ||
                     selectedLocalUser?.website ||
                     "یافت نشد!"}
@@ -164,7 +164,7 @@ export default function UsersListPage() {
                 <small className="text-(--text-secondary) font-light">
                   کد پستی:
                 </small>
-                <p className="text-sm">
+                <p className="text-sm  wrap-break-word">
                   {userInfoDetails?.address?.zipcode ||
                     selectedLocalUser?.zipcode ||
                     "یافت نشد!"}
@@ -174,7 +174,7 @@ export default function UsersListPage() {
                 <small className="text-(--text-secondary) font-light">
                   آدرس:
                 </small>
-                <p className="text-sm">
+                <p className="text-sm  wrap-break-word">
                   {userInfoDetails?.address?.city +
                     userInfoDetails?.address?.street +
                     userInfoDetails?.address?.suite ||
