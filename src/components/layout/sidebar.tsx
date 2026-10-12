@@ -80,7 +80,7 @@ export default function Sidebar() {
                 اطلاعات کاربری
               </Link>
               <Link
-                className="flex gap-2 items-center text-red-700 bg-red-50 text-[15px] duration-300 px-5 py-3 rounded-lg mt-32"
+                className="flex gap-2 items-center text-red-700 duration-300 hover:bg-red-50 text-[15px] duration-300 px-5 py-3 rounded-lg mt-32"
                 to={"/"}
               >
                 <LogOutIcon className="size-4" />
