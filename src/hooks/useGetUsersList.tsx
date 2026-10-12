@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { usersService } from "../services/users.service";
 import type { ColumnDef } from "@tanstack/react-table";
 import type { features } from "../components/common/Table";
@@ -12,6 +12,7 @@ import type {
   SearchInUsersListFormInput,
 } from "../types/forms/AddNewUser.type";
 import { alphabeticalSorting } from "../utilities/functions";
+import { queryClient } from "../api/queries";
 
 export function useUsersList() {
   const {
@@ -48,14 +49,14 @@ export function useUsersList() {
     enabled: !!showUserInfoModal && !isLocalUser,
   });
 
-const removeUser = useMutation({
-  mutationFn: (id: string) => usersService.deleteSelectedUser({ id }),
-  onSuccess: () => {
-    queryClient.invalidateQueries({ queryKey: ["GET_USERS_LIST"] });
-    toast.success("کاربر با موفقیت حذف شد!");
-  },
-  onError: () => toast.error("خطا در حذف کاربر"),
-});
+  const removeUser = useMutation({
+    mutationFn: (id: string) => usersService.deleteSelectedUser({ id }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["GET_USERS_LIST"] });
+      toast.success("کاربر با موفقیت حذف شد!");
+    },
+    onError: () => toast.error("خطا در حذف کاربر"),
+  });
 
   useEffect(() => {
     if (removeUser?.data) {
